@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ENG 102 — Tenses, Voice & Academic Style: Quiz + Cheat Sheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4F6F8; --sheet:#FFFFFF; --ink:#18233A; --muted:#5A6477; --rule:#D8DEE6;
+  --pen:#C0392B; --pen-soft:#FBE9E7; --hl:#FFE45C; --ok:#1E7F5C; --ok-soft:#E3F4EC;
+  --key:#0F6E6A; --key-soft:#E0F1F0; --mine:#5B46A5; --mine-soft:#ECE8F8; --new:#B35C00; --new-soft:#FDF0E1;
+  --serif:"Newsreader", Georgia, "Times New Roman", serif;
+  --sans:"Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#121720; --sheet:#1A212D; --ink:#E6EAF0; --muted:#9AA4B5; --rule:#2F3847;
+    --pen:#FF7A6B; --pen-soft:#3A2220; --hl:#8C7A12; --ok:#5BD1A2; --ok-soft:#173127;
+    --key:#5CC8C2; --key-soft:#15302F; --mine:#B3A2F2; --mine-soft:#27223F; --new:#F2A55A; --new-soft:#35271A;
+  }
+}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 70px)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.2;margin:0 0 .5em}
+h1{font-size:clamp(1.9rem,4.5vw,2.8rem)}
+h2{font-size:1.65rem;margin-top:1.6em}
+h3{font-size:1.2rem;margin-top:1.4em}
+p{margin:.4em 0 .8em}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px 80px}
+
+/* header */
+header.top{padding:36px 0 18px}
+header.top .course{font-weight:600;color:var(--muted);margin-bottom:6px}
+.hero-line{font-family:var(--serif);font-size:1.25rem;margin-top:14px;color:var(--muted)}
+.hero-line s{color:var(--pen);text-decoration-thickness:2px}
+.hero-line ins{text-decoration:none;color:var(--pen);font-style:italic;font-weight:600}
+
+/* tabs */
+nav.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--paper);border-bottom:1px solid var(--rule);overflow-x:auto;white-space:nowrap}
+nav.tabs .inner{max-width:900px;margin:0 auto;padding:0 12px;display:flex;gap:2px}
+nav.tabs button{font:inherit;font-weight:600;background:none;border:0;color:var(--muted);padding:14px 12px;cursor:pointer;border-bottom:3px solid transparent}
+nav.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--pen)}
+section.panel{display:none;padding-top:10px}
+section.panel.active{display:block}
+
+/* legend / badges */
+.badge{display:inline-block;font-size:.78rem;font-weight:600;padding:2px 9px;border-radius:999px;vertical-align:middle;margin-left:6px}
+.b-key{background:var(--key-soft);color:var(--key)}
+.b-mine{background:var(--mine-soft);color:var(--mine)}
+.b-new{background:var(--new-soft);color:var(--new)}
+.legend{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 4px;font-size:.9rem;color:var(--muted)}
+.legend .badge{margin-left:0;margin-right:4px}
+
+/* blocks */
+.block{background:var(--sheet);border:1px solid var(--rule);border-radius:10px;padding:20px 22px;margin:16px 0}
+.instr{font-weight:600}
+.passage{font-family:var(--serif);font-size:1.12rem;line-height:1.95}
+.note{font-size:.93rem;color:var(--muted)}
+
+/* fill-ins */
+.blank{display:inline-flex;align-items:baseline;gap:4px;white-space:nowrap}
+.blank input{font:inherit;font-family:var(--sans);font-size:.98rem;width:9.5em;padding:2px 6px;border:0;border-bottom:2px solid var(--muted);background:transparent;color:var(--ink)}
+.blank input:focus{outline:2px solid var(--key);outline-offset:2px}
+.blank .cue{font-family:var(--sans);font-size:.85rem;color:var(--muted)}
+.blank input.right{border-bottom-color:var(--ok);background:var(--ok-soft)}
+.blank input.wrong{border-bottom-color:var(--pen);background:var(--pen-soft)}
+.num{font-family:var(--sans);font-size:.72rem;font-weight:700;color:var(--muted);vertical-align:super}
+
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+button.act{font:inherit;font-weight:600;font-size:.92rem;padding:8px 14px;border-radius:7px;border:1px solid var(--rule);background:var(--sheet);color:var(--ink);cursor:pointer}
+button.act.primary{background:var(--ink);color:var(--sheet);border-color:var(--ink)}
+button.act:focus-visible,nav.tabs button:focus-visible,.w:focus-visible,.opt:focus-visible{outline:3px solid var(--key);outline-offset:2px}
+.score{font-weight:700;margin-left:auto;align-self:center}
+
+.explain{margin-top:14px;display:none}
+.explain.show{display:block}
+.ex-item{border-left:3px solid var(--key);padding:6px 12px;margin:10px 0;background:var(--key-soft);border-radius:0 6px 6px 0}
+.ex-item.mine{border-left-color:var(--mine);background:var(--mine-soft)}
+.ex-item b.ans{font-family:var(--serif);font-size:1.05rem}
+
+/* transformations */
+.tr{padding:14px 0;border-top:1px solid var(--rule)}
+.tr:first-of-type{border-top:0}
+.tr .src{font-family:var(--serif);font-size:1.08rem}
+.tr textarea{width:100%;font:inherit;padding:8px 10px;margin-top:8px;border:1px solid var(--rule);border-radius:7px;background:var(--paper);color:var(--ink);min-height:48px;resize:vertical}
+.tr textarea.right{border-color:var(--ok);background:var(--ok-soft)}
+.tr .fb{margin-top:8px;display:none}
+.tr .fb.show{display:block}
+
+/* error hunt */
+.hunt .w{cursor:pointer;border-radius:3px;padding:0 1px}
+.hunt .w:hover{background:var(--paper);box-shadow:inset 0 -2px 0 var(--muted)}
+.hunt .w.found{background:var(--hl);color:#18233A}
+.hunt .w.miss{animation:shake .35s}
+.hunt .w.revealed{background:var(--hl);color:#18233A;box-shadow:inset 0 -2px 0 var(--pen)}
+@keyframes shake{0%,100%{transform:none}25%{transform:translateX(-3px)}75%{transform:translateX(3px)}}
+@media (prefers-reduced-motion: reduce){.hunt .w.miss{animation:none;outline:2px solid var(--pen)}}
+.hunt .counter{font-weight:700}
+.fixlist{margin-top:14px}
+.fix{border:1px solid var(--rule);border-radius:8px;padding:10px 14px;margin:8px 0;display:none}
+.fix.show{display:block}
+.fix .row{font-family:var(--serif);font-size:1.05rem}
+.fix .row s{color:var(--pen)}
+.fix .row .to{color:var(--ok);font-weight:600}
+.corrected{display:none;margin-top:14px;border-left:3px solid var(--ok);padding:10px 14px;background:var(--ok-soft);border-radius:0 8px 8px 0}
+.corrected.show{display:block}
+
+/* MCQ */
+.mcq{padding:14px 0;border-top:1px solid var(--rule)}
+.mcq:first-of-type{border-top:0}
+.mcq .q{font-weight:600;margin-bottom:8px}
+.opt{display:block;width:100%;text-align:left;font:inherit;padding:9px 12px;margin:6px 0;border:1px solid var(--rule);border-radius:7px;background:var(--paper);color:var(--ink);cursor:pointer}
+.opt.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong{border-color:var(--pen);background:var(--pen-soft)}
+.mcq .why{display:none;font-size:.94rem;margin-top:6px}
+.mcq .why.show{display:block}
+
+/* cheat sheet */
+.cs-grid{display:grid;grid-template-columns:1fr;gap:14px}
+@media (min-width:760px){.cs-grid.two{grid-template-columns:1fr 1fr}}
+.cs{background:var(--sheet);border:1px solid var(--rule);border-radius:10px;padding:16px 18px;border-top:5px solid var(--key)}
+.cs.t-tense{border-top-color:#3B6FD9}
+.cs.t-voice{border-top-color:var(--key)}
+.cs.t-style{border-top-color:var(--pen)}
+.cs.t-new{border-top-color:var(--new)}
+.cs h3{margin-top:0}
+.cs ul{margin:.3em 0 .6em;padding-left:1.2em}
+.cs li{margin:.25em 0}
+.ex{font-family:var(--serif);font-style:italic}
+.tbl-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.94rem;margin:8px 0}
+th,td{text-align:left;padding:7px 9px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-weight:700;color:var(--muted)}
+td .ex{white-space:normal}
+
+.map td:first-child{font-weight:600}
+.status-ok{color:var(--ok);font-weight:700}
+.status-new{color:var(--new);font-weight:700}
+
+footer{margin-top:40px;font-size:.88rem;color:var(--muted)}
+@media print{nav.tabs,.btns{display:none}section.panel{display:block}.explain,.fix,.corrected,.why,.fb{display:block!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<header class="top">
+  <div class="course">LAU · ENG 102 · Exam prep</div>
+  <h1>Tenses, voice &amp; academic style</h1>
+  <p class="note">Sample Quiz 1 made interactive, a cheat sheet for every concept it tests, the extra topics from your exam notes, and a separate practice set.</p>
+  <div class="hero-line">…a report by Video Games Europe <s>found out</s> <ins>found</ins> that more than half…</div>
+</header>
+</div>
+
+<nav class="tabs" role="tablist" aria-label="Sections">
+  <div class="inner">
+    <button role="tab" aria-selected="true" data-tab="quiz">Sample quiz</button>
+    <button role="tab" aria-selected="false" data-tab="cheat">Cheat sheet</button>
+    <button role="tab" aria-selected="false" data-tab="practice">Practice (new questions)</button>
+    <button role="tab" aria-selected="false" data-tab="exam">Exam map</button>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<!-- ============ SAMPLE QUIZ ============ -->
+<section class="panel active" id="quiz" role="tabpanel">
+  <div class="legend">
+    <span><span class="badge b-key">Answer key</span>answer taken exactly from your key</span>
+    <span><span class="badge b-mine">Correction written</span>the key marks the error, the fix is written for you</span>
+  </div>
+
+  <h2>Question 1 · Academic tense</h2>
+  <div class="block">
+    <p class="instr">Read the following text from an IMRaD paper carefully. Choose the appropriate academic tense of each verb in parentheses. (5 pts.)</p>
+    <div class="passage" id="q1"></div>
+    <div class="btns">
+      <button class="act primary" data-check="q1">Check answers</button>
+      <button class="act" data-reveal="q1">Show answers &amp; explanations</button>
+      <button class="act" data-reset="q1">Reset</button>
+      <span class="score" id="q1-score"></span>
+    </div>
+    <div class="explain" id="q1-explain"></div>
+  </div>
+
+  <h2>Question 2 · Active to passive</h2>
+  <div class="block">
+    <p class="instr">Transform from the active to the passive voice. (5 pts.)</p>
+    <div id="q2"></div>
+    <div class="btns">
+      <button class="act primary" data-trcheck="q2">Check all</button>
+      <button class="act" data-trreveal="q2">Show all answers</button>
+      <button class="act" data-trreset="q2">Reset</button>
+      <span class="score" id="q2-score"></span>
+    </div>
+  </div>
+
+  <h2>Question 3 · Academic style errors</h2>
+  <div class="block hunt">
+    <p class="instr">Read the text below thoroughly and correct ten errors in academic style. (5 pts.)</p>
+    <p class="note">Click the words or phrases you think are errors. Found: <span class="counter" id="q3-count">0 / 10</span></p>
+    <div class="passage" id="q3"></div>
+    <div class="btns">
+      <button class="act" data-hreveal="q3">Reveal all errors</button>
+      <button class="act primary" data-hcorrected="q3">Show corrected paragraph</button>
+      <button class="act" data-hreset="q3">Reset</button>
+    </div>
+    <div class="fixlist" id="q3-fixes"></div>
+    <div class="corrected" id="q3-corrected"></div>
+  </div>
+</section>
+
+<!-- ============ CHEAT SHEET ============ -->
+<section class="panel" id="cheat" role="tabpanel">
+  <div class="legend">
+    <span><span class="badge b-key">In sample quiz</span>tested in Sample Quiz 1</span>
+    <span><span class="badge b-new">From exam notes</span>on your exam but not in the sample quiz</span>
+  </div>
+
+  <h2>1 · Academic tenses <span class="badge b-key">In sample quiz</span></h2>
+  <div class="cs-grid two">
+    <div class="cs t-tense">
+      <h3>Present simple</h3>
+      <p>For facts that are true now, general truths, and habits.</p>
+      <ul>
+        <li><span class="ex">Video games <b>are</b> currently one of the mass entertainment media…</span></li>
+        <li><span class="ex">Young people <b>devote</b> a large part of their time…</span></li>
+        <li>Also used to report what research shows in general: <span class="ex">Research… <b>shows</b> that…</span></li>
+      </ul>
+      <p class="note">Signal words: currently, now, generally, in general, usually.</p>
+    </div>
+    <div class="cs t-tense">
+      <h3>Present perfect (has / have + past participle)</h3>
+      <p>For something that started in the past and still matters now, and for research trends up to the present.</p>
+      <ul>
+        <li><span class="ex">…their possible educational uses <b>have come</b> to the fore.</span></li>
+        <li><span class="ex">Most studies on DGBL <b>have</b> [examined] its cognitive benefits…</span></li>
+      </ul>
+      <p class="note">Signal words: in recent years, over the past decade, so far, to date, recently.</p>
+    </div>
+    <div class="cs t-tense">
+      <h3>Past simple</h3>
+      <p>For finished actions at a specific time, such as what a particular study did or found, and what you did in your own methods.</p>
+      <ul>
+        <li><span class="ex">The Statistical Office of the European Union <b>revealed</b> that…</span></li>
+        <li><span class="ex">We <b>eliminated</b> 25 participants…</span></li>
+      </ul>
+      <p class="note">Signal words: in 2020, last year, a specific named study, "in this study we…"</p>
+    </div>
+    <div class="cs t-tense">
+      <h3>Subject–verb agreement traps</h3>
+      <ul>
+        <li><b>"which" referring to a whole idea</b> takes a singular verb: <span class="ex">…to this use, which <b>explains</b>…</span></li>
+        <li><b>"as well as" does not make the subject plural</b>. Find the main noun: <span class="ex">the <u>implications</u>… as well as their uses, <b>have</b> come</span> (plural because "implications" is plural).</li>
+        <li><b>"Research"</b> is uncountable, so it takes a singular verb: <span class="ex">Research… <b>shows</b></span>.</li>
+        <li><b>"The VG, in general"</b> is treated as one medium in the key, so the verb is singular: <span class="ex"><b>has</b></span>. Ignore the comma phrase "in general" when finding the subject.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>2 · Active and passive voice <span class="badge b-key">In sample quiz</span></h2>
+  <div class="cs-grid two">
+    <div class="cs t-voice">
+      <h3>How to transform, in 4 steps</h3>
+      <ol>
+        <li>Find the <b>object</b> of the active sentence. It becomes the new subject.</li>
+        <li>Keep the <b>same tense</b>: put <b>be</b> in that tense.</li>
+        <li>Add the <b>past participle</b> of the main verb.</li>
+        <li>Drop the doer ("we", "the researchers") when it's obvious or unimportant, which is usual in Methods sections.</li>
+      </ol>
+      <p class="ex">We devised the questionnaire. → The questionnaire was devised.</p>
+    </div>
+    <div class="cs t-voice">
+      <h3>Why academic writing uses the passive</h3>
+      <ul>
+        <li>It keeps the focus on the <b>research</b>, not the researcher.</li>
+        <li>It sounds objective and impersonal.</li>
+        <li>It's standard for describing methods: what was done, not who did it.</li>
+        <li><b>"It" passive</b> for reporting claims: <span class="ex">The researchers have indicated that… → <b>It has been indicated</b> that…</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="cs t-voice" style="margin-top:14px">
+    <h3>Passive by tense</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th>Tense</th><th>Passive form</th><th>Example</th></tr>
+      <tr><td>Present simple</td><td>am / is / are + pp</td><td class="ex">Proposals are approved by the committee.</td></tr>
+      <tr><td>Past simple</td><td>was / were + pp</td><td class="ex">The questionnaire for teachers and students was devised.</td></tr>
+      <tr><td>Present perfect</td><td>has / have been + pp</td><td class="ex">These points have been treated as scalar or range variables.</td></tr>
+      <tr><td>Past perfect</td><td>had been + pp</td><td class="ex">The data had been cleaned before analysis.</td></tr>
+      <tr><td>Future</td><td>will be + pp</td><td class="ex">The results will be analyzed.</td></tr>
+      <tr><td>Modal</td><td>can / may / should be + pp</td><td class="ex">These findings may be explained by…</td></tr>
+      <tr><td>Continuous</td><td>is / was being + pp</td><td class="ex">The data are being processed.</td></tr>
+    </table></div>
+    <p class="note">Singular vs. plural still matters: <span class="ex">25 participants… <b>were</b> eliminated</span>, <span class="ex">The approval… <b>was</b> received</span>.</p>
+  </div>
+
+  <h2>3 · Academic style <span class="badge b-key">In sample quiz</span></h2>
+  <div class="cs-grid two">
+    <div class="cs t-style">
+      <h3>Rules behind the 10 errors in the quiz</h3>
+      <ul>
+        <li><b>Don't address the reader or give commands.</b> <span class="ex">Imagine that…</span> → state the fact directly.</li>
+        <li><b>Don't start a sentence with And / But / So.</b> Use <i>Similarly, Furthermore, However, Therefore</i>.</li>
+        <li><b>Avoid redundant connectors.</b> <span class="ex">and while</span> → <span class="ex">while</span>.</li>
+        <li><b>Replace phrasal verbs</b> with one-word verbs: <span class="ex">find out → find, use up → use, work on → examine</span>.</li>
+        <li><b>Replace informal words</b>: <span class="ex">a lot of → many, just like → similar to, clear-cut → conclusive</span>.</li>
+        <li><b>Keep tense consistent with meaning</b>: a research trend continuing to now takes present perfect: <span class="ex">researchers <b>have focused</b> on</span>.</li>
+      </ul>
+    </div>
+    <div class="cs t-style">
+      <h3>Informal → academic swaps</h3>
+      <div class="tbl-wrap"><table>
+        <tr><th>Informal</th><th>Academic</th></tr>
+        <tr><td>find out</td><td>find, discover, determine</td></tr>
+        <tr><td>use up</td><td>use (use up means "consume completely")</td></tr>
+        <tr><td>work on / look into</td><td>examine, investigate, study</td></tr>
+        <tr><td>a lot of / lots of</td><td>many, much, a large number of</td></tr>
+        <tr><td>just like</td><td>similar to, as in, like that of</td></tr>
+        <tr><td>clear-cut</td><td>conclusive, clear, definitive</td></tr>
+        <tr><td>get</td><td>obtain, become, receive</td></tr>
+        <tr><td>go up / go down</td><td>increase / decrease</td></tr>
+        <tr><td>figure out</td><td>determine, develop, solve</td></tr>
+        <tr><td>pretty / really / very</td><td>considerably, highly, or remove</td></tr>
+        <tr><td>And, … / But, … / So, …</td><td>Furthermore, / However, / Therefore,</td></tr>
+      </table></div>
+    </div>
+  </div>
+
+  <h2>4 · Contractions <span class="badge b-new">From exam notes</span></h2>
+  <div class="cs t-new">
+    <p>Academic writing never uses contractions. Write both words in full. This is the easiest point to earn on the intro-editing question, so scan every apostrophe.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Contraction</th><th>Full form</th><th>Contraction</th><th>Full form</th></tr>
+      <tr><td>it's</td><td>it is / it has</td><td>can't</td><td>cannot (one word)</td></tr>
+      <tr><td>don't / doesn't</td><td>do not / does not</td><td>won't</td><td>will not</td></tr>
+      <tr><td>didn't</td><td>did not</td><td>isn't / aren't</td><td>is not / are not</td></tr>
+      <tr><td>hasn't / haven't</td><td>has not / have not</td><td>they're</td><td>they are</td></tr>
+      <tr><td>there's</td><td>there is / there has</td><td>shouldn't</td><td>should not</td></tr>
+    </table></div>
+    <p class="note">Trap: apostrophes for possession are fine: <span class="ex">the students' responses</span>, <span class="ex">the study's aim</span>. "Its" (no apostrophe) is possessive and is not a contraction: <span class="ex">DGBL and its cognitive benefits</span>.</p>
+  </div>
+
+  <h2>5 · Hedging <span class="badge b-new">From exam notes</span></h2>
+  <div class="cs-grid two">
+    <div class="cs t-new">
+      <h3>What hedging is</h3>
+      <p>Hedging means softening a claim so it matches the evidence. Research rarely proves anything absolutely, so academic writers use cautious language to avoid overclaiming.</p>
+      <p><b>Overclaim:</b> <span class="ex">Video games always improve learning.</span><br>
+         <b>Hedged:</b> <span class="ex">Video games <b>may</b> improve learning in some contexts.</span></p>
+      <p><b>Also a mistake:</b> hedging a well-established fact, or stacking hedges: <span class="ex">It might possibly perhaps suggest…</span>. One hedge per claim is usually enough.</p>
+    </div>
+    <div class="cs t-new">
+      <h3>Hedging toolkit</h3>
+      <div class="tbl-wrap"><table>
+        <tr><th>Type</th><th>Examples</th></tr>
+        <tr><td>Modal verbs</td><td>may, might, can, could</td></tr>
+        <tr><td>Cautious verbs</td><td>suggest, indicate, appear, seem, tend to</td></tr>
+        <tr><td>Adverbs</td><td>possibly, probably, likely, generally, often</td></tr>
+        <tr><td>Adjectives</td><td>possible, probable, likely</td></tr>
+        <tr><td>Quantity limits</td><td>some, many, most (instead of all)</td></tr>
+        <tr><td>Frequency limits</td><td>often, usually (instead of always / never)</td></tr>
+        <tr><td>Phrases</td><td>It is likely that…, The findings suggest that…</td></tr>
+      </table></div>
+      <p class="note">Words to catch and replace: <b>prove → suggest / indicate</b>, <b>always → often / tend to</b>, <b>never → rarely</b>, <b>all → most / many</b>, <b>It is clear that → It appears that</b>, <b>definitely / certainly → likely</b>.</p>
+    </div>
+  </div>
+
+  <h2>6 · Combining voice and tense <span class="badge b-new">From exam notes</span></h2>
+  <div class="cs t-new">
+    <p>Your exam's first question combines both skills in one passage. For each blank, make two decisions:</p>
+    <ol>
+      <li><b>Voice.</b> Is the subject <i>doing</i> the action (active) or <i>receiving</i> it (passive)? <span class="ex">Data <u>collect</u>…</span> Data can't collect anything, so it's passive: <span class="ex">Data <b>were collected</b></span>. <span class="ex">Participants <u>complete</u> a questionnaire</span> They do it, so it's active: <span class="ex">Participants <b>completed</b></span>.</li>
+      <li><b>Tense.</b> Use the signal words: a finished action in your study → past; a general truth → present; a trend up to now ("to date", "in recent years") → present perfect.</li>
+    </ol>
+    <p>Then check agreement: <span class="ex">the questionnaire <b>was</b></span> vs. <span class="ex">the questionnaires <b>were</b></span>.</p>
+  </div>
+</section>
+
+<!-- ============ PRACTICE ============ -->
+<section class="panel" id="practice" role="tabpanel">
+  <div class="legend">
+    <span><span class="badge b-mine">Practice</span>new questions written for you on the same concepts. These are not from your instructor.</span>
+  </div>
+  <p class="note">Different topics from the sample quiz (social media, online learning, a survey study) so you can tell them apart. Section B mirrors your exam's combined voice-and-tense question, and Section D mirrors the intro-editing question with contractions and hedges.</p>
+
+  <h2>A · Verb tense fill-in</h2>
+  <div class="block">
+    <p class="instr">Write each verb in the appropriate academic tense.</p>
+    <div class="passage" id="p1"></div>
+    <div class="btns">
+      <button class="act primary" data-check="p1">Check answers</button>
+      <button class="act" data-reveal="p1">Show answers &amp; explanations</button>
+      <button class="act" data-reset="p1">Reset</button>
+      <span class="score" id="p1-score"></span>
+    </div>
+    <div class="explain" id="p1-explain"></div>
+  </div>
+
+  <h2>B · Combined voice + tense <span class="badge b-new">Exam Q1 style</span></h2>
+  <div class="block">
+    <p class="instr">From a Methods section. For each verb, decide active or passive, then choose the tense.</p>
+    <div class="passage" id="p3"></div>
+    <div class="btns">
+      <button class="act primary" data-check="p3">Check answers</button>
+      <button class="act" data-reveal="p3">Show answers &amp; explanations</button>
+      <button class="act" data-reset="p3">Reset</button>
+      <span class="score" id="p3-score"></span>
+    </div>
+    <div class="explain" id="p3-explain"></div>
+  </div>
+
+  <h2>C · Active to passive</h2>
+  <div class="block">
+    <p class="instr">Transform from the active to the passive voice.</p>
+    <div id="p2"></div>
+    <div class="btns">
+      <button class="act primary" data-trcheck="p2">Check all</button>
+      <button class="act" data-trreveal="p2">Show all answers</button>
+      <button class="act" data-trreset="p2">Reset</button>
+      <span class="score" id="p2-score"></span>
+    </div>
+  </div>
+
+  <h2>D · Intro editing: contractions, hedges &amp; style <span class="badge b-new">Exam Q2 style</span></h2>
+  <div class="block hunt">
+    <p class="instr">This introduction contains 11 errors: contractions, overclaims that need hedging, and informal style. Find and correct them.</p>
+    <p class="note">Click the words or phrases you think are errors. Found: <span class="counter" id="p4-count">0 / 11</span></p>
+    <div class="passage" id="p4"></div>
+    <div class="btns">
+      <button class="act" data-hreveal="p4">Reveal all errors</button>
+      <button class="act primary" data-hcorrected="p4">Show corrected paragraph</button>
+      <button class="act" data-hreset="p4">Reset</button>
+    </div>
+    <div class="fixlist" id="p4-fixes"></div>
+    <div class="corrected" id="p4-corrected"></div>
+  </div>
+
+  <h2>E · Quick checks: hedging, contractions &amp; style</h2>
+  <div class="block">
+    <div id="p5"></div>
+    <div class="btns"><span class="score" id="p5-score"></span><button class="act" id="p5-reset">Reset</button></div>
+  </div>
+</section>
+
+<!-- ============ EXAM MAP ============ -->
+<section class="panel" id="exam" role="tabpanel">
+  <h2>What your exam covers vs. what the sample quiz tests</h2>
+  <p class="note">Built from your exam notes: next Friday, 30 minutes, 3 questions.</p>
+  <div class="block tbl-wrap">
+    <table class="map">
+      <tr><th>Exam question</th><th>In sample quiz?</th><th>Where to study here</th></tr>
+      <tr><td>Q1 · Active/passive and verb tenses combined, from an article section</td>
+          <td><span class="status-ok">Partly.</span> The quiz tests each skill separately. <span class="status-new">Combining them in one exercise is new.</span></td>
+          <td>Cheat sheet §1, §2, §6 · Practice B, C</td></tr>
+      <tr><td>Q2 · Intro editing: find and correct errors</td>
+          <td><span class="status-ok">Partly.</span> Quiz Q3 covers academic style. <span class="status-new">Contractions and hedges are new.</span></td>
+          <td>Cheat sheet §3, §4, §5 · Practice D, E</td></tr>
+      <tr><td>Q3 · Verb tense fill-in: ______ (verb)</td>
+          <td><span class="status-ok">Yes.</span> Same format as quiz Q1.</td>
+          <td>Cheat sheet §1 · Quiz Q1 · Practice A</td></tr>
+    </table>
+  </div>
+
+  <h2>Suggestions</h2>
+  <div class="block">
+    <ul>
+      <li><b>Time yourself.</b> The sample quiz was 25 minutes for 3 questions and the exam is 30, so roughly 10 minutes per question. Try Practice A, B and D back to back in 30 minutes.</li>
+      <li><b>Editing questions don't tell you the error type.</b> Make three passes over the intro: one for apostrophes (contractions), one for absolute words like <i>always, prove, clear, all</i> (hedges), and one for informal words, phrasal verbs and sentence openers.</li>
+      <li><b>For fill-ins, find the true subject first.</b> Cross out phrases between commas and "as well as" phrases, then check whether the verb is singular or plural.</li>
+      <li><b>Ask your instructor</b> whether the combined question gives you the voice (e.g. "(collect, passive)") or expects you to decide it. The practice here makes you decide, which is the harder version.</li>
+      <li><b>Hedging depends on judgment.</b> The practice answers show one acceptable hedge each. Your instructor may accept others, such as <i>may, might, suggest, tend to</i>, if they soften the claim correctly.</li>
+    </ul>
+  </div>
+</section>
+
+<footer>Sample Quiz 1 answers follow your answer key. Quiz Q3 corrections, all practice questions, and cheat-sheet sections marked "From exam notes" were written for you and are not from your instructor.</footer>
+</div>
+
+<script>
+/* ---------- tabs ---------- */
+document.querySelectorAll('nav.tabs button').forEach(function(b){
+  b.addEventListener('click',function(){
+    document.querySelectorAll('nav.tabs button').forEach(function(x){x.setAttribute('aria-selected','false')});
+    b.setAttribute('aria-selected','true');
+    document.querySelectorAll('section.panel').forEach(function(s){s.classList.remove('active')});
+    document.getElementById(b.dataset.tab).classList.add('active');
+    window.scrollTo({top:0});
+  });
+});
+
+function norm(s){return (s||'').toLowerCase().replace(/[’']/g,"'").replace(/[.,;:!?"]/g,'').replace(/\s+/g,' ').trim();}
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+
+/* ---------- FILL-IN ---------- */
+var FILLS = {
+  q1:{
+    src:'key',
+    parts:["Video games (VG) ",{b:0,v:"to be"}," currently one of the mass entertainment media with the greatest reach in the youth population and perhaps the most economically important cultural industry. Young people ",{b:1,v:"devote"}," a large part of their time to this use, which ",{b:2,v:"explain"}," why the implications they have on the cognitive, affective, and social development of children and young people, as well as their possible educational uses, ",{b:3,v:"come"}," to the fore. Research in recent decades shows that the VG, in general, ",{b:4,v:"have"}," a moderate positive effect in different areas of the curriculum (Boyle et al., 2016; Mayer, 2019)."],
+    ans:[["are"],["devote"],["explains"],["have come"],["has"]],
+    why:[
+      "<b>Present simple, plural.</b> \"Currently\" signals a present fact, and the subject \"Video games\" is plural, so the answer is <i>are</i>.",
+      "<b>Present simple, plural.</b> This is a general, habitual fact about young people today. \"Young people\" is plural, so there's no -s.",
+      "<b>Present simple, singular.</b> \"Which\" refers to the whole previous idea (young people devoting time to games), which counts as one thing, so the verb is singular: <i>explains</i>.",
+      "<b>Present perfect, plural.</b> The main subject is \"the implications\" (plural). \"As well as their possible educational uses\" doesn't change the number. \"Come to the fore\" describes a development that started in the past and is still relevant now, so the answer is <i>have come</i>.",
+      "<b>Present simple, singular.</b> Ignore \"in general\" between the commas. The key treats \"the VG\" as one medium, so the verb is singular. It's present because it reports an established research finding (\"Research… shows that…\")."
+    ]
+  },
+  p1:{
+    src:'mine',
+    parts:["Social media platforms ",{b:0,v:"be"}," now among the most widely used communication tools among university students. Over the past decade, the time students spend online ",{b:1,v:"increase"}," considerably, which ",{b:2,v:"raise"}," concerns about its effects on sleep and academic performance. Several studies ",{b:3,v:"examine"}," this relationship in recent years (Kim & Lee, 2021; Ortiz, 2023). In a large-scale survey, Ortiz (2023) ",{b:4,v:"find"}," that students who used their phones after midnight slept, on average, 47 minutes less. However, research on the long-term effects ",{b:5,v:"remain"}," limited. The present study therefore ",{b:6,v:"aim"}," to address this gap."],
+    ans:[["are"],["has increased"],["raises","has raised"],["have examined"],["found"],["remains"],["aims"]],
+    why:[
+      "<b>Present simple, plural.</b> \"Now\" signals a current fact, and \"platforms\" is plural.",
+      "<b>Present perfect, singular.</b> \"Over the past decade\" means from the past up to now. The subject is \"the time\" (singular), not \"students\".",
+      "<b>Present simple, singular.</b> \"Which\" refers to the whole idea of time online increasing, just like <i>which explains</i> in the quiz. <i>Has raised</i> is also acceptable.",
+      "<b>Present perfect, plural.</b> \"In recent years\" is a present perfect signal, and \"studies\" is plural.",
+      "<b>Past simple.</b> This is one specific study with a date (2023) and a finished action.",
+      "<b>Present simple, singular.</b> \"Research\" is uncountable, and this describes the current state of knowledge.",
+      "<b>Present simple, singular.</b> Use the present to state the aim of your own paper: <i>The present study aims to…</i>"
+    ]
+  },
+  p3:{
+    src:'mine',
+    parts:["Data for this study ",{b:0,v:"collect"}," between January and March 2024. A total of 120 undergraduate students ",{b:1,v:"recruit"}," from two universities in Beirut. Participants ",{b:2,v:"complete"}," an online questionnaire, which ",{b:3,v:"take"}," approximately 15 minutes. Incomplete responses ",{b:4,v:"exclude"}," from the analysis. To date, similar questionnaires ",{b:5,v:"use"}," in several regional studies, and their reliability ",{b:6,v:"confirm"}," repeatedly."],
+    ans:[["were collected"],["were recruited"],["completed"],["took"],["were excluded"],["have been used"],["has been confirmed"]],
+    why:[
+      "<b>Passive, past simple, plural.</b> Data can't collect anything, so it's passive. \"Between January and March 2024\" is finished time, so it's past. Your key treats \"data\" as plural, so use <i>were</i>.",
+      "<b>Passive, past simple, plural.</b> Students were recruited by the researchers. \"120 students\" is plural.",
+      "<b>Active, past simple.</b> Participants did the action themselves. It's a finished step of this study.",
+      "<b>Active, past simple, singular.</b> The questionnaire took 15 minutes. \"Take\" here means \"lasted\", so it's active. \"Which\" refers to \"questionnaire\" (singular).",
+      "<b>Passive, past simple, plural.</b> Responses don't exclude themselves; the researchers excluded them.",
+      "<b>Passive, present perfect, plural.</b> \"To date\" means up to now, so it's present perfect. Questionnaires are used by researchers, so it's passive: <i>have been used</i>.",
+      "<b>Passive, present perfect, singular.</b> Reliability is confirmed by someone, so it's passive. \"Repeatedly\" up to now calls for present perfect. \"Reliability\" is singular, so use <i>has been confirmed</i>."
+    ]
+  }
+};
+
+function renderFill(id){
+  var d=FILLS[id], el=document.getElementById(id), html='';
+  d.parts.forEach(function(p){
+    if(typeof p==='string'){html+=esc(p);}
+    else{html+='<span class="blank"><span class="num">'+(p.b+1)+'</span><input type="text" aria-label="Blank '+(p.b+1)+': '+p.v+'" data-i="'+p.b+'" autocomplete="off" autocapitalize="off" spellcheck="false"><span class="cue">('+p.v+')</span></span>';}
+  });
+  el.innerHTML=html;
+  var ex=document.getElementById(id+'-explain'), eh='';
+  var badge = d.src==='key' ? '<span class="badge b-key">Answer key</span>' : '<span class="badge b-mine">Practice</span>';
+  d.ans.forEach(function(a,i){
+    eh+='<div class="ex-item'+(d.src==='mine'?' mine':'')+'"><b>'+(i+1)+'.</b> <b class="ans">'+a.join(' / ')+'</b> '+(i===0?badge:'')+'<br>'+d.why[i]+'</div>';
+  });
+  ex.innerHTML=eh;
+}
+function checkFill(id){
+  var d=FILLS[id], n=0;
+  document.querySelectorAll('#'+id+' input').forEach(function(inp){
+    var i=+inp.dataset.i, ok=d.ans[i].map(norm).indexOf(norm(inp.value))>-1;
+    inp.classList.toggle('right',ok); inp.classList.toggle('wrong',!ok);
+    if(ok)n++;
+  });
+  document.getElementById(id+'-score').textContent=n+' / '+d.ans.length;
+  document.getElementById(id+'-explain').classList.add('show');
+}
+function revealFill(id){
+  var d=FILLS[id];
+  document.querySelectorAll('#'+id+' input').forEach(function(inp){
+    inp.value=d.ans[+inp.dataset.i][0]; inp.classList.add('right'); inp.classList.remove('wrong');
+  });
+  document.getElementById(id+'-explain').classList.add('show');
+}
+function resetFill(id){
+  document.querySelectorAll('#'+id+' input').forEach(function(inp){inp.value='';inp.className='';});
+  document.getElementById(id+'-score').textContent='';
+  document.getElementById(id+'-explain').classList.remove('show');
+}
+
+/* ---------- TRANSFORMATIONS ---------- */
+var TRS = {
+  q2:{src:'key',items:[
+    {s:"We devised the questionnaire for teachers and students.",
+     a:"The questionnaire for teachers and students was devised.",
+     why:"Past simple (devised) becomes <i>was + devised</i>. The object \"the questionnaire for teachers and students\" becomes the subject. \"We\" is dropped because the doer is obvious."},
+    {s:"The questionnaire received the approval of the ethics committee of the Autonomous University of Madrid.",
+     a:"The approval of the ethics committee of the Autonomous University of Madrid was received.",
+     why:"The object \"the approval of the ethics committee…\" becomes the subject. Past simple (received) becomes <i>was received</i>, singular because \"approval\" is singular."},
+    {s:"The researchers have indicated that the use of video games recurs with different participants in different groups.",
+     a:"It has been indicated that the use of video games recurs with different participants in different groups.",
+     why:"The object is a whole that-clause, so use the <b>\"It\" passive</b>: <i>It + has been + indicated that…</i> Present perfect stays present perfect. \"The researchers\" is dropped."},
+    {s:"We eliminated 25 participants who took less than 5 minutes to respond or showed unreliable response patterns.",
+     a:"25 participants who took less than 5 minutes to respond or showed unreliable response patterns were eliminated.",
+     why:"The whole object, including its \"who…\" clause, moves to the front. Past simple, plural (participants): <i>were eliminated</i>. Note that \"took\" and \"showed\" stay active because they're inside the description of the participants."},
+    {s:"We have treated these points as scalar or range variables.",
+     a:"These points have been treated as scalar or range variables.",
+     why:"Present perfect (have treated) becomes <i>have been treated</i>, plural because \"these points\" is plural."}
+  ]},
+  p2:{src:'mine',items:[
+    {s:"The researchers interviewed 40 teachers.",
+     a:"40 teachers were interviewed.", alt:["forty teachers were interviewed","40 teachers were interviewed by the researchers"],
+     why:"Past simple, plural: <i>were interviewed</i>. The doer is dropped, the same pattern as \"25 participants… were eliminated\" in your key."},
+    {s:"We have collected the data from three public schools.",
+     a:"The data have been collected from three public schools.", alt:["the data has been collected from three public schools"],
+     why:"Present perfect becomes <i>have been + collected</i>. \"Data\" is traditionally plural in academic writing (<i>have been</i>), though <i>has been</i> is also widely accepted."},
+    {s:"The ethics committee approves all research proposals.",
+     a:"All research proposals are approved by the ethics committee.", alt:["all research proposals are approved"],
+     why:"Present simple, plural: <i>are approved</i>. Keeping \"by the ethics committee\" is useful here because the approver matters."},
+    {s:"Previous studies have shown that screen time affects sleep quality.",
+     a:"It has been shown that screen time affects sleep quality.", alt:["it has been shown by previous studies that screen time affects sleep quality"],
+     why:"The object is a that-clause, so use the \"It\" passive, just like \"It has been indicated that…\" in your key."},
+    {s:"We will analyze the results using SPSS.",
+     a:"The results will be analyzed using SPSS.", alt:["the results will be analysed using spss"],
+     why:"Future becomes <i>will be + analyzed</i>. \"We\" is dropped."}
+  ]}
+};
+function renderTr(id){
+  var d=TRS[id], el=document.getElementById(id), html='';
+  var badge = d.src==='key'?'<span class="badge b-key">Answer key</span>':'<span class="badge b-mine">Practice</span>';
+  d.items.forEach(function(it,i){
+    html+='<div class="tr" data-i="'+i+'"><div class="src"><b>'+(i+1)+'.</b> '+esc(it.s)+'</div>'+
+      '<textarea aria-label="Your passive version of sentence '+(i+1)+'" placeholder="Write the passive version…"></textarea>'+
+      '<div class="btns" style="margin-top:6px"><button class="act" data-one="'+id+'" data-i="'+i+'">Check</button></div>'+
+      '<div class="fb"><div class="ex-item'+(d.src==='mine'?' mine':'')+'"><span class="res"></span><b class="ans">'+esc(it.a)+'</b> '+badge+'<br>'+it.why+'</div></div></div>';
+  });
+  el.innerHTML=html;
+}
+function checkTrOne(id,i){
+  var it=TRS[id].items[i], box=document.querySelector('#'+id+' .tr[data-i="'+i+'"]'), ta=box.querySelector('textarea');
+  var accepted=[it.a].concat(it.alt||[]).map(norm), ok=accepted.indexOf(norm(ta.value))>-1;
+  ta.classList.toggle('right',ok);
+  box.querySelector('.res').innerHTML = ta.value.trim()==='' ? 'Model answer: ' : (ok?'<b style="color:var(--ok)">Correct.</b> ':'<b style="color:var(--pen)">Compare with the answer:</b> ');
+  box.querySelector('.fb').classList.add('show');
+  return ok;
+}
+document.addEventListener('click',function(e){
+  var t=e.target;
+  if(t.dataset.one){checkTrOne(t.dataset.one,+t.dataset.i);}
+  if(t.dataset.check){checkFill(t.dataset.check);}
+  if(t.dataset.reveal){revealFill(t.dataset.reveal);}
+  if(t.dataset.reset){resetFill(t.dataset.reset);}
+  if(t.dataset.trcheck){var id=t.dataset.trcheck,n=0;TRS[id].items.forEach(function(_,i){if(checkTrOne(id,i))n++;});document.getElementById(id+'-score').textContent=n+' / '+TRS[id].items.length;}
+  if(t.dataset.trreveal){var id2=t.dataset.trreveal;TRS[id2].items.forEach(function(it,i){var b=document.querySelector('#'+id2+' .tr[data-i="'+i+'"]');b.querySelector('.res').textContent='Answer: ';b.querySelector('.fb').classList.add('show');});}
+  if(t.dataset.trreset){var id3=t.dataset.trreset;document.querySelectorAll('#'+id3+' textarea').forEach(function(x){x.value='';x.className='';});document.querySelectorAll('#'+id3+' .fb').forEach(function(x){x.classList.remove('show');});document.getElementById(id3+'-score').textContent='';}
+  if(t.dataset.hreveal){revealHunt(t.dataset.hreveal);}
+  if(t.dataset.hcorrected){document.getElementById(t.dataset.hcorrected+'-corrected').classList.add('show');}
+  if(t.dataset.hreset){renderHunt(t.dataset.hreset);}
+});
+
+/* ---------- ERROR HUNT ---------- */
+var HUNTS = {
+  q3:{
+    parts:[{e:0}," playing digital games has become widespread across demographics and regions all over the world. According to the Entertainment Software Association, 65 % of all Americans play video games, with the majority being over 18 years old (74 %) ",{e:1}," 35 % of all players were aged 18–34. The data from the Statistical Office of the European Union revealed that 58 % of Europeans aged 16–24 ",{e:2}," the internet to play or download video games. ",{e:3},", a report by Video Games Europe ",{e:4}," that more than half of the European population plays video games, with the majority being over 18 years old (76 %) ",{e:5}," the USA. Since ",{e:6}," people play digital games, researchers ",{e:7}," harnessing the potential of digital games for learning. Most studies on DGBL have ",{e:8}," its cognitive benefits in STEM disciplines. While they revealed more or less positive effects of digital games on academic achievement, the research in humanities and social sciences yielded less ",{e:9}," results."],
+    errs:[
+      {w:"Imagine that",f:"(delete) → Playing digital games…",why:"Academic writing doesn't address the reader or give commands. State the fact directly."},
+      {w:"and while",f:"while",why:"Two connectors are doing one job. \"While\" alone already links and contrasts the two statistics."},
+      {w:"use up",f:"use",why:"Phrasal verbs are informal. \"Use up\" also means \"consume completely\", which is the wrong meaning here."},
+      {w:"And",f:"Similarly",why:"Don't start a sentence with \"And\". A formal linking adverb shows the relationship: the European report supports the previous point."},
+      {w:"found out",f:"found",why:"Phrasal verb, so it's informal. A one-word verb (found / reported) is more academic."},
+      {w:"just like",f:"similar to",why:"\"Just like\" is conversational. \"Similar to\" makes the same comparison formally."},
+      {w:"a lot of",f:"many",why:"\"A lot of\" is informal. Use \"many\" with countable nouns such as people."},
+      {w:"focused on",f:"have focused on",why:"This describes a research trend continuing up to now, so it needs present perfect, matching \"have [examined]\" in the next sentence."},
+      {w:"worked on",f:"examined",why:"\"Worked on\" is a vague, informal phrasal verb. \"Examined\" or \"investigated\" says precisely what the studies did."},
+      {w:"clear-cut",f:"conclusive",why:"\"Clear-cut\" is informal. \"Less conclusive results\" is the academic equivalent."}
+    ],
+    corrected:"Playing digital games has become widespread across demographics and regions all over the world. According to the Entertainment Software Association, 65 % of all Americans play video games, with the majority being over 18 years old (74 %), while 35 % of all players were aged 18–34. The data from the Statistical Office of the European Union revealed that 58 % of Europeans aged 16–24 use the internet to play or download video games. Similarly, a report by Video Games Europe found that more than half of the European population plays video games, with the majority being over 18 years old (76 %), similar to the USA. Since many people play digital games, researchers have focused on harnessing the potential of digital games for learning. Most studies on DGBL have examined its cognitive benefits in STEM disciplines. While they revealed more or less positive effects of digital games on academic achievement, the research in humanities and social sciences yielded less conclusive results.",
+    note:"The ten errors are the ones highlighted in your answer key. The key doesn't give corrections, so the fixes above were written for you. Other academic words would also work (e.g. \"reported\" for found out, \"investigated\" for worked on).",
+    src:'key'
+  },
+  p4:{
+    parts:["Online learning has become common in higher education. ",{e:0}," online courses ",{e:1}," student performance. However, ",{e:2}," universities ",{e:3}," have the tools to move classes online in 2020, so they had to ",{e:4}," new systems quickly. ",{e:5}," recent studies ",{e:6}," that students in online courses ",{e:7}," focus as well as those in face-to-face classes. ",{e:8}," that this problem is easy to solve; however, the causes are ",{e:9}," complex. This study ",{e:10}," the factors that affect student concentration in online classes."],
+    errs:[
+      {w:"It's clear that",f:"It appears that",why:"Two problems: \"It's\" is a contraction, and \"clear\" overclaims. The hedge \"It appears that\" fixes both."},
+      {w:"always improve",f:"may improve",why:"Overclaim. Research can't show something happens always, so hedge with a modal (may / can) or \"tend to improve\"."},
+      {w:"lots of",f:"many",why:"Informal quantity expression."},
+      {w:"didn't",f:"did not",why:"Contraction."},
+      {w:"figure out",f:"develop",why:"Informal phrasal verb."},
+      {w:"But",f:"Nevertheless,",why:"Don't start a sentence with \"But\". Use a formal linking adverb."},
+      {w:"prove",f:"suggest",why:"Overclaim. Studies rarely prove anything, so hedge with suggest / indicate."},
+      {w:"can't",f:"cannot",why:"Contraction. Note that \"cannot\" is one word. You could also hedge further: \"may not be able to focus\"."},
+      {w:"You might think",f:"It might be assumed",why:"Don't address the reader. Use an impersonal (passive) structure."},
+      {w:"pretty",f:"considerably",why:"Informal intensifier."},
+      {w:"looks into",f:"investigates",why:"Informal phrasal verb."}
+    ],
+    corrected:"Online learning has become common in higher education. It appears that online courses may improve student performance. However, many universities did not have the tools to move classes online in 2020, so they had to develop new systems quickly. Nevertheless, recent studies suggest that students in online courses cannot focus as well as those in face-to-face classes. It might be assumed that this problem is easy to solve; however, the causes are considerably complex. This study investigates the factors that affect student concentration in online classes.",
+    note:"Practice question written for you, not from your instructor. Hedges can vary: \"can improve\" or \"tend to improve\" would also work for error 2.",
+    src:'mine'
+  }
+};
+function wordsToSpans(str){
+  return str.split(/(\s+)/).map(function(tok){
+    if(/^\s+$/.test(tok)||tok==='')return tok;
+    return '<span class="w" tabindex="0" role="button" data-decoy="1">'+esc(tok)+'</span>';
+  }).join('');
+}
+function renderHunt(id){
+  var d=HUNTS[id], html='';
+  d.parts.forEach(function(p){
+    if(typeof p==='string')html+=wordsToSpans(p);
+    else html+='<span class="w" tabindex="0" role="button" data-e="'+p.e+'">'+esc(d.errs[p.e].w)+'</span>';
+  });
+  document.getElementById(id).innerHTML=html;
+  var badge = d.src==='key'?'<span class="badge b-key">Error from key</span> <span class="badge b-mine">Correction written</span>':'<span class="badge b-mine">Practice</span>';
+  var fx='';
+  d.errs.forEach(function(er,i){
+    fx+='<div class="fix" id="'+id+'-fix-'+i+'"><div class="row"><b>'+(i+1)+'.</b> <s>'+esc(er.w)+'</s> → <span class="to">'+esc(er.f)+'</span> '+(i===0?badge:'')+'</div><div class="note">'+er.why+'</div></div>';
+  });
+  document.getElementById(id+'-fixes').innerHTML=fx;
+  var c=document.getElementById(id+'-corrected');
+  c.innerHTML='<b>Corrected paragraph</b><p class="passage" style="margin:.4em 0">'+esc(d.corrected)+'</p><p class="note">'+d.note+'</p>';
+  c.classList.remove('show');
+  updCount(id);
+  document.querySelectorAll('#'+id+' .w').forEach(function(s){
+    var fn=function(){
+      if(s.dataset.e!==undefined){s.classList.add('found');document.getElementById(id+'-fix-'+s.dataset.e).classList.add('show');updCount(id);}
+      else{s.classList.remove('miss');void s.offsetWidth;s.classList.add('miss');}
+    };
+    s.addEventListener('click',fn);
+    s.addEventListener('keydown',function(ev){if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();fn();}});
+  });
+}
+function updCount(id){
+  var n=document.querySelectorAll('#'+id+' .w.found').length;
+  document.getElementById(id+'-count').textContent=n+' / '+HUNTS[id].errs.length;
+}
+function revealHunt(id){
+  document.querySelectorAll('#'+id+' .w[data-e]').forEach(function(s){if(!s.classList.contains('found'))s.classList.add('revealed');});
+  document.querySelectorAll('#'+id+'-fixes .fix').forEach(function(f){f.classList.add('show');});
+}
+
+/* ---------- MCQ ---------- */
+var MCQ=[
+  {q:"Which sentence is correctly hedged?",o:["Social media causes poor sleep in all students.","Social media may contribute to poor sleep in some students.","Social media might possibly perhaps affect sleep.","It is obvious that social media affects sleep."],c:1,why:"One hedge (may) plus a limit (some students). Option C stacks too many hedges; A and D overclaim."},
+  {q:"Choose the best replacement for the underlined word: \"These results <u>prove</u> that gaming improves memory.\"",o:["show clearly","suggest","definitely show","confirm"],c:1,why:"\"Suggest\" is a cautious reporting verb. The others still present the finding as certain."},
+  {q:"Which of these is NOT a contraction error?",o:["The study's participants were volunteers.","The results don't support the hypothesis.","It's likely that scores improved.","Researchers haven't examined this group."],c:0,why:"\"Study's\" shows possession, which is fine in academic writing. The others are contractions: do not, It is, have not."},
+  {q:"\"The participants can't recall the instructions.\" Correct academic form:",o:["The participants can not recall the instructions.","The participants cannot recall the instructions.","The participants could'nt recall the instructions.","The participants can't recall the instructions."],c:1,why:"\"Cannot\" is written as one word."},
+  {q:"Which sentence overclaims and needs a hedge?",o:["Previous studies indicate a link between screen time and anxiety.","Screen time always leads to anxiety.","The findings suggest a possible link.","Anxiety tends to increase with screen time."],c:1,why:"\"Always\" is an absolute claim. The others are already hedged (indicate, suggest, possible, tends to)."},
+  {q:"Pick the most academic version.",o:["So, we looked into how students use apps.","This study investigates how students use apps.","You'll see how students use apps.","We're looking into how students use apps."],c:1,why:"No sentence-initial \"So\", no phrasal verb, no reader address, no contraction."},
+  {q:"\"Data ______ (gather) from 200 respondents last semester.\"",o:["gathered","have gathered","were gathered","are gathering"],c:2,why:"Data can't gather anything, so it's passive. \"Last semester\" is finished time, so it's past: were gathered."},
+  {q:"\"Over the past two decades, interest in DGBL ______ (grow).\"",o:["grew","has grown","grows","is grown"],c:1,why:"\"Over the past two decades\" means up to now, so use present perfect. \"Interest\" is singular: has grown."},
+  {q:"Which is the correct passive of \"Researchers have identified three factors\"?",o:["Three factors were identified.","Three factors have been identified.","Three factors has been identified.","Three factors are identified."],c:1,why:"Keep the tense (present perfect, so have been + pp) and match the plural subject."},
+  {q:"Which sentence-opening is appropriate in academic writing?",o:["And the results were similar.","But this was not the case.","Furthermore, the results were similar.","So the hypothesis was rejected."],c:2,why:"Don't start sentences with And / But / So. Use linking adverbs such as Furthermore, However, Therefore."}
+];
+function renderMCQ(){
+  var el=document.getElementById('p5'), html='';
+  MCQ.forEach(function(m,i){
+    html+='<div class="mcq" data-i="'+i+'"><div class="q">'+(i+1)+'. '+m.q+' <span class="badge b-mine">Practice</span></div>';
+    m.o.forEach(function(o,j){html+='<button class="opt" data-q="'+i+'" data-o="'+j+'">'+o+'</button>';});
+    html+='<div class="why">'+m.why+'</div></div>';
+  });
+  el.innerHTML=html;
+  document.getElementById('p5-score').textContent='';
+  el.querySelectorAll('.opt').forEach(function(b){
+    b.addEventListener('click',function(){
+      var i=+b.dataset.q, box=el.querySelector('.mcq[data-i="'+i+'"]');
+      if(box.dataset.done)return;
+      box.dataset.done=b.dataset.o==MCQ[i].c?'1':'0';
+      box.querySelectorAll('.opt').forEach(function(x){
+        if(+x.dataset.o===MCQ[i].c)x.classList.add('right');
+        else if(x===b)x.classList.add('wrong');
+      });
+      box.querySelector('.why').classList.add('show');
+      var done=el.querySelectorAll('.mcq[data-done]'), right=el.querySelectorAll('.mcq[data-done="1"]');
+      document.getElementById('p5-score').textContent=right.length+' / '+done.length+' correct';
+    });
+  });
+}
+document.getElementById('p5-reset').addEventListener('click',renderMCQ);
+
+['q1','p1','p3'].forEach(renderFill);
+['q2','p2'].forEach(renderTr);
+['q3','p4'].forEach(renderHunt);
+renderMCQ();
+</script>
+</body>
+</html>
